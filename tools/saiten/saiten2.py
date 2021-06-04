@@ -84,7 +84,9 @@ if __name__ == "__main__":
     os.chdir(STUDENTNUMBER_FOLDER + folder + '/')
 
     # 区切りを結果ファイルに書き込む
-    subprocess.run('echo ' + '================================' + ' >> ' + result_file_name,shell=True)
+    f = open(result_file_name,'a')
+    f.write('================================' + '\n')
+    f.close()
 
     # ソースファイルを一つずつ実行していく
     for sourcefile in sourcefiles:
@@ -109,20 +111,20 @@ if __name__ == "__main__":
       f.close()
 
       # コンパイル
-      res = subprocess.run('gcc ' + sourcefile + ' ' + COMPILE_OPTION[option_number],stdout=PIPE, stderr=PIPE,text=True,shell=True)
+      res = subprocess.run('gcc ' + sourcefile + ' ' + COMPILE_OPTION[option_number],stdout=PIPE, stderr=PIPE,shell=True)
       # コンパイルコマンドを出力する
       f = open(result_file_name,'a')
       f.write('gcc ' + sourcefile + ' ' + COMPILE_OPTION[option_number] + '\n\n')
       f.close()
 
-      if(res.stderr != ""):
+      if(res.stderr.decode() != ""):
         # コンパイルエラーは結果ファイルに'コンパイルエラー'と書き込む
         f = open(result_file_name,'a')
         f.write('コンパイルエラー ' + '\n')
         f.close()
       else:
         # うまくコンパイルできたら実行結果を結果ファイルに書き込む
-        res = subprocess.run('./a.out >> ' + result_file_name,stdout=PIPE, stderr=PIPE,text=True,shell=True)
+        res = subprocess.run('./a.out >> ' + result_file_name,stdout=PIPE, stderr=PIPE,shell=True)
 
       # 区切りを結果ファイルに書き込む
       f = open(result_file_name,'a')

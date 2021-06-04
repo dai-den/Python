@@ -109,7 +109,7 @@ if __name__ == "__main__":
       f.close()
 
       # コンパイル
-      res = subprocess.run('gcc ' + sourcefile + ' ' + COMPILE_OPTION[option_number],stdout=PIPE, stderr=PIPE,text=True,shell=True)
+      res = subprocess.run('gcc ' + sourcefile + ' ' + COMPILE_OPTION[option_number],stdout=PIPE, stderr=PIPE,shell=True)
       # コンパイルコマンドを出力する
       f = open(result_file_name,'a')
       f.write('gcc ' + sourcefile + ' ' + COMPILE_OPTION[option_number] + '\n\n')
