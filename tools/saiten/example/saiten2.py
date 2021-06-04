@@ -53,6 +53,11 @@ COMPILE_OPTION = [
 # 最終的にそれぞれの学番フォルダに結果のtxtファイルが入る
 
 if __name__ == "__main__":
+
+  if(not os.path.exists(STUDENTNUMBER_FOLDER)):
+    print(STUDENTNUMBER_FOLDER + "がないよ")
+    exit
+
   # STUDENTNUMBER_FOLDER以下の学番フォルダ群を取得する
   folders = os.listdir(STUDENTNUMBER_FOLDER)
 
