@@ -128,9 +128,9 @@
 
 ## srcfile
   テスト用データがあります.
-  studentNumber*内にcソースが有り,それをzipで固めたものを
-  userName*フォルダに格納してあります.
-  テストの際はuserName*フォルダをuserNameFolderに入れてください.
+  学籍番号フォルダ内にCのソースコードが有り,それをzipで固めたものを
+  個人名フォルダフォルダに格納してあります.
+  テストの際は個人名フォルダをuserNameFolderに入れてください.
 
   - studentNumber1/02.c.cにソースファイルの名前の間違い
   - studentNumber1/03.cにコンパイルエラー
